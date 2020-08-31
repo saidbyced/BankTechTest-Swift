@@ -39,7 +39,7 @@ struct ContentView: View {
             
             let dateFormatter = DateFormatter()
             dateFormatter.locale = Locale(identifier: "en_GB")
-            dateFormatter.setLocalizedDateFormatFromTemplate("yyMMdd")
+            dateFormatter.setLocalizedDateFormatFromTemplate("yyyyMMdd")
             let transactionDate = dateFormatter.string(from: transaction.date)
             
             if transaction.type == .deposit {
