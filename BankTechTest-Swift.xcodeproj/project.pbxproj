@@ -14,6 +14,7 @@
 		AE04FBA324FD31EF00B51227 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE04FBA224FD31EF00B51227 /* Preview Assets.xcassets */; };
 		AE04FBA624FD31EF00B51227 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE04FBA424FD31EF00B51227 /* LaunchScreen.storyboard */; };
 		AE04FBB124FD31EF00B51227 /* BankTechTest_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04FBB024FD31EF00B51227 /* BankTechTest_SwiftTests.swift */; };
+		AE04FBBC24FD336A00B51227 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE04FBBB24FD336A00B51227 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		AE04FBAC24FD31EF00B51227 /* BankTechTest-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BankTechTest-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE04FBB024FD31EF00B51227 /* BankTechTest_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTechTest_SwiftTests.swift; sourceTree = "<group>"; };
 		AE04FBB224FD31EF00B51227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE04FBBB24FD336A00B51227 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				AE04FB9924FD31E800B51227 /* AppDelegate.swift */,
 				AE04FB9B24FD31E800B51227 /* SceneDelegate.swift */,
 				AE04FB9D24FD31E800B51227 /* ContentView.swift */,
+				AE04FBBB24FD336A00B51227 /* Account.swift */,
 				AE04FB9F24FD31EF00B51227 /* Assets.xcassets */,
 				AE04FBA424FD31EF00B51227 /* LaunchScreen.storyboard */,
 				AE04FBA724FD31EF00B51227 /* Info.plist */,
@@ -209,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE04FB9A24FD31E800B51227 /* AppDelegate.swift in Sources */,
+				AE04FBBC24FD336A00B51227 /* Account.swift in Sources */,
 				AE04FB9C24FD31E800B51227 /* SceneDelegate.swift in Sources */,
 				AE04FB9E24FD31E800B51227 /* ContentView.swift in Sources */,
 			);
