@@ -17,7 +17,10 @@ struct ContentView: View {
     var account = Account()
     
     func add(_ type: Account.Transaction.OfType) {
-        guard let amount = Float(transactionAmount) else { return }
+        guard let amount = Float(transactionAmount) else {
+            self.transactionAmount = ""
+            return
+        }
         
         if type == .deposit {
             account.deposit(amount)
@@ -26,6 +29,8 @@ struct ContentView: View {
         } else {
             print("Error - no such transaction type")
         }
+        
+        self.transactionAmount = ""
     }
     
     func printStatement() {
@@ -70,7 +75,6 @@ struct ContentView: View {
                     Button(
                         action: {
                             self.add(.deposit)
-                            self.transactionAmount = ""
                         },
                         label: {
                             Text("Deposit (+)")
@@ -81,7 +85,6 @@ struct ContentView: View {
                     Button(
                         action: {
                             self.add(.withdrawal)
-                            self.transactionAmount = ""
                         },
                         label: {
                             Text("Withdraw (-)")
