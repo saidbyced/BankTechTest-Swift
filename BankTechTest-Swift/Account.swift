@@ -10,6 +10,14 @@ import Foundation
 
 class Account {
     var transactions: [Transaction] = []
+    
+    func deposit(_ amount: Float) {
+        transactions.append(Transaction(date: Date(), amount: amount, type: .deposit))
+    }
+    
+    func withdraw(_ amount: Float) {
+        transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawl))
+    }
 }
 
 struct Transaction {
@@ -17,7 +25,7 @@ struct Transaction {
     var amount: Float
     
     enum TransationType {
-        case Withdrawl, Deposit
+        case deposit, withdrawl
     }
     
     var type: TransationType
