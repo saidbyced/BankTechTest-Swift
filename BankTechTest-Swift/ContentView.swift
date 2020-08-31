@@ -13,6 +13,16 @@ struct ContentView: View {
     
     var account = Account()
     
+    func add(_ type: Transaction.OfType) {
+        guard let amount = Float(transactionAmount) else { return }
+        
+        if type == .deposit {
+            account.deposit(amount)
+        } else if type == .withdrawal {
+            account.withdraw(amount)
+        }
+    }
+    
     var body: some View {
         VStack {
             VStack {
@@ -21,12 +31,12 @@ struct ContentView: View {
                     .frame(width: 200)
                 HStack {
                     Button(
-                        action: { print("deposit made") },
+                        action: { self.add(.deposit) },
                         label: { Text("Deposit (+)") }
                     )
                         .padding(5)
                     Button(
-                        action: { print("withdrawal made") },
+                        action: { self.add(.withdrawal) },
                         label: { Text("Withdraw (-)") }
                     )
                         .padding(5)
