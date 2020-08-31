@@ -24,9 +24,9 @@ struct Transaction {
     var date: Date
     var amount: Float
     
-    enum TransationType {
+    enum OfType {
         case deposit, withdrawal
     }
     
-    var type: TransationType
+    var type: OfType
 }
