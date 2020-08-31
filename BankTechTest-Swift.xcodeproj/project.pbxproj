@@ -40,6 +40,7 @@
 		AE04FBB024FD31EF00B51227 /* BankTechTest_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTechTest_SwiftTests.swift; sourceTree = "<group>"; };
 		AE04FBB224FD31EF00B51227 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE04FBBB24FD336A00B51227 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		AE04FBBD24FD51C300B51227 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		AE04FB8D24FD31E800B51227 = {
 			isa = PBXGroup;
 			children = (
+				AE04FBBD24FD51C300B51227 /* README.md */,
 				AE04FB9824FD31E800B51227 /* BankTechTest-Swift */,
 				AE04FBAF24FD31EF00B51227 /* BankTechTest-SwiftTests */,
 				AE04FB9724FD31E800B51227 /* Products */,
