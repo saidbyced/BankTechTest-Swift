@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var transactionAmount = ""
     @State private var statement = ""
+    @State private var showingStatement = false
     
     var account = Account()
     
@@ -21,13 +22,15 @@ struct ContentView: View {
             account.deposit(amount)
         } else if type == .withdrawal {
             account.withdraw(amount)
+        } else {
+            print("Error - no such transaction type")
         }
     }
     
     func printStatement() {
         let transactionList = account.transactions
-        var statementArray: [String] = []
         let header = "date || credit || debit || balance\n"
+        var statementArray: [String] = []
         var balance = Float(0)
         
         for transaction in transactionList {
@@ -52,6 +55,7 @@ struct ContentView: View {
         }
         
         statement = header + statementArray.reversed().joined(separator: "\n")
+        self.showingStatement = true
     }
     
     var body: some View {
@@ -62,23 +66,54 @@ struct ContentView: View {
                     .frame(width: 200)
                 HStack {
                     Button(
-                        action: { self.add(.deposit) },
-                        label: { Text("Deposit (+)") }
+                        action: {
+                            self.add(.deposit)
+                            self.transactionAmount = ""
+                        },
+                        label: {
+                            Text("Deposit (+)")
+                        }
                     )
                         .padding(5)
                     Button(
-                        action: { self.add(.withdrawal) },
-                        label: { Text("Withdraw (-)") }
+                        action: {
+                            self.add(.withdrawal)
+                            self.transactionAmount = ""
+                        },
+                        label: {
+                            Text("Withdraw (-)")
+                            
+                        }
                     )
                         .padding(5)
                 }
             }
-            Button(
-                action: { self.printStatement() },
-                label: { Text("Print Statement") }
-            )
-                .padding(5)
-            Text(statement)
+            Group {
+                if showingStatement == false {
+                    Button(
+                        action: {
+                            self.printStatement()
+                        },
+                        label: {
+                            Text("Print Statement")
+                        }
+                    )
+                        .padding(5)
+                    Text(statement)
+                        .hidden()
+                } else {
+                    Button(
+                        action: {
+                            self.showingStatement = false
+                        },
+                        label: {
+                            Text("Hide Statement")
+                        }
+                    )
+                        .padding(5)
+                    Text(statement)
+                }
+            }
         }
     }
 }
