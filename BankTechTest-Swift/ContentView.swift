@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var transactionAmount = ""
     @State private var statement = ""
     @State private var showingStatement = false
+    @State private var statementButtonLabel = "Print Statement"
     
     var account = Account()
     
@@ -55,6 +56,7 @@ struct ContentView: View {
         }
         
         statement = header + statementArray.reversed().joined(separator: "\n")
+        statementButtonLabel = "Reprint Statement"
         self.showingStatement = true
     }
     
@@ -74,6 +76,7 @@ struct ContentView: View {
                             Text("Deposit (+)")
                         }
                     )
+                        .disabled(transactionAmount == "")
                         .padding(5)
                     Button(
                         action: {
@@ -85,20 +88,21 @@ struct ContentView: View {
                             
                         }
                     )
+                        .disabled(transactionAmount == "")
                         .padding(5)
                 }
             }
+            Button(
+                action: {
+                    self.printStatement()
+                },
+                label: {
+                    Text(statementButtonLabel)
+                }
+            )
+                .padding(5)
             Group {
                 if showingStatement == false {
-                    Button(
-                        action: {
-                            self.printStatement()
-                        },
-                        label: {
-                            Text("Print Statement")
-                        }
-                    )
-                        .padding(5)
                     Text(statement)
                         .hidden()
                 } else {
