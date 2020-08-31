@@ -16,7 +16,7 @@ class Account {
     }
     
     func withdraw(_ amount: Float) {
-        transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawl))
+        transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawal))
     }
 }
 
@@ -25,7 +25,7 @@ struct Transaction {
     var amount: Float
     
     enum TransationType {
-        case deposit, withdrawl
+        case deposit, withdrawal
     }
     
     var type: TransationType

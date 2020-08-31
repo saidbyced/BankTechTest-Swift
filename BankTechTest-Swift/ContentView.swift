@@ -22,7 +22,7 @@ struct ContentView: View {
                         .padding(5)
                 }
                 Button(
-                    action: { print("withdrawl made") },
+                    action: { print("withdrawal made") },
                     label: { Text("Withdraw (-)") }
                 )
                     .padding(5)
