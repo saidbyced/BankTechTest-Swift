@@ -11,7 +11,7 @@ import Foundation
 class Account {
     struct Transaction {
         var date: Date
-        var amount: Float
+        var amount: Double
         
         enum OfType {
             case deposit, withdrawal
@@ -22,16 +22,16 @@ class Account {
     
     var transactions: [Transaction] = []
     
-    func deposit(_ amount: Float) {
+    func deposit(_ amount: Double) {
         transactions.append(Transaction(date: Date(), amount: amount, type: .deposit))
     }
     
-    func withdraw(_ amount: Float) {
+    func withdraw(_ amount: Double) {
         transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawal))
     }
     
     var statement: [String] {
-        var balance = Float(0)
+        var balance = 0.0
         var statement: [String] = []
         
         for transaction in transactions {
