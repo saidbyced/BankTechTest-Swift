@@ -34,33 +34,9 @@ struct ContentView: View {
     }
     
     func printStatement() {
-        let transactionList = account.transactions
         let header = "date || credit || debit || balance\n"
-        var statementArray: [String] = []
-        var balance = Float(0)
         
-        for transaction in transactionList {
-            let transactionAmount = String(format: "%.2f", transaction.amount)
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "en_GB")
-            dateFormatter.setLocalizedDateFormatFromTemplate("yyyyMMdd")
-            let transactionDate = dateFormatter.string(from: transaction.date)
-            
-            if transaction.type == .deposit {
-                balance += transaction.amount
-                let balanceAmount = String(format: "%.2f", balance)
-                statementArray.append("\(transactionDate) || \(transactionAmount) || || \(balanceAmount)")
-            } else if transaction.type == .withdrawal {
-                balance -= transaction.amount
-                let balanceAmount = String(format: "%.2f", balance)
-                statementArray.append("\(transactionDate) || || \(transactionAmount) || \(balanceAmount)")
-            } else {
-                print("Error - no such transaction type")
-            }
-        }
-        
-        statement = header + statementArray.reversed().joined(separator: "\n")
+        statement = header + account.statement.reversed().joined(separator: "\n")
         statementButtonLabel = "Reprint Statement"
         self.showingStatement = true
     }
