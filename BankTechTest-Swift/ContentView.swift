@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var transactionAmount = ""
-    @State private var statement = ""
+    @State private var printableStatement = ""
     @State private var showingStatement = false
     @State private var statementButtonLabel = "Print Statement"
     
@@ -36,7 +36,7 @@ struct ContentView: View {
     func printStatement() {
         let header = "date || credit || debit || balance\n"
         
-        statement = header + account.statement.reversed().joined(separator: "\n")
+        printableStatement = header + account.statement.reversed().joined(separator: "\n")
         statementButtonLabel = "Reprint Statement"
         self.showingStatement = true
     }
@@ -82,7 +82,7 @@ struct ContentView: View {
                 .padding(5)
             Group {
                 if showingStatement == false {
-                    Text(statement)
+                    Text(printableStatement)
                         .hidden()
                 } else {
                     Button(
@@ -94,7 +94,7 @@ struct ContentView: View {
                         }
                     )
                         .padding(5)
-                    Text(statement)
+                    Text(printableStatement)
                 }
             }
         }
