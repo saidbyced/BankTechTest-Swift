@@ -50,9 +50,6 @@ class Account {
                 balance -= transaction.amount
                 let balanceAmount = String(format: "%.2f", balance)
                 statement.append("\(transactionDate) || || \(transactionAmount) || \(balanceAmount)")
-            default:
-                let balanceAmount = String(format: "%.2f", balance)
-                statement.append("\(transactionDate) || || || \(balanceAmount)")
             }
         }
         
