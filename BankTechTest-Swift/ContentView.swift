@@ -17,7 +17,7 @@ struct ContentView: View {
     var account = Account()
     
     func add(_ type: Account.Transaction.OfType) {
-        guard let amount = Float(transactionAmount) else {
+        guard let amount = Double(transactionAmount) else {
             self.transactionAmount = ""
             return
         }
