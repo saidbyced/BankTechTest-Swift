@@ -22,14 +22,6 @@ class Account {
     
     var transactions: [Transaction] = []
     
-    func deposit(_ amount: Double) {
-        transactions.append(Transaction(date: Date(), amount: amount, type: .deposit))
-    }
-    
-    func withdraw(_ amount: Double) {
-        transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawal))
-    }
-    
     var statement: [String] {
         var balance = 0.0
         var statement: [String] = []
@@ -54,5 +46,15 @@ class Account {
         }
         
         return statement
+    }
+    
+    func add(_ type: Transaction.OfType, of amount: Double) {
+        if type == .deposit {
+            transactions.append(Transaction(date: Date(), amount: amount, type: .deposit))
+        } else if type == .withdrawal {
+            transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawal))
+        } else {
+            print("Error - no such transaction type")
+        }
     }
 }
