@@ -22,9 +22,10 @@ class Account {
     
     var transactions: [Transaction] = []
     
-    var statement: [String] {
+    var statement: String {
+        let header = "date || credit || debit || balance\n"
         var balance = 0.0
-        var statement: [String] = []
+        var transactionStrings: [String] = []
         
         for transaction in transactions {
             let dateFormatter = DateFormatter()
@@ -37,15 +38,15 @@ class Account {
             case .deposit:
                 balance += transaction.amount
                 let balanceAmount = String(format: "%.2f", balance)
-                statement.append("\(transactionDate) || \(transactionAmount) || || \(balanceAmount)")
+                transactionStrings.append("\(transactionDate) || \(transactionAmount) || || \(balanceAmount)")
             case .withdrawal:
                 balance -= transaction.amount
                 let balanceAmount = String(format: "%.2f", balance)
-                statement.append("\(transactionDate) || || \(transactionAmount) || \(balanceAmount)")
+                transactionStrings.append("\(transactionDate) || || \(transactionAmount) || \(balanceAmount)")
             }
         }
         
-        return statement
+        return header + transactionStrings.reversed().joined(separator: "\n")
     }
     
     func add(_ type: Transaction.OfType, of amount: Double) {
