@@ -20,7 +20,7 @@ class Account {
         var type: OfType
     }
     
-    var transactions: [Transaction] = []
+    private var transactions: [Transaction] = []
     
     var statement: String {
         let header = "date || credit || debit || balance\n"
