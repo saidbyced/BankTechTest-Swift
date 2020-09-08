@@ -17,9 +17,7 @@ struct ContentView: View {
     var account = Account()
     
     func printStatement() {
-        let header = "date || credit || debit || balance\n"
-        
-        printableStatement = header + account.statement.reversed().joined(separator: "\n")
+        printableStatement = account.statement
         statementButtonLabel = "Reprint Statement"
         self.showingStatement = true
     }
