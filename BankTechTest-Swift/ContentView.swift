@@ -16,23 +16,6 @@ struct ContentView: View {
     
     var account = Account()
     
-    func add(_ type: Account.Transaction.OfType) {
-        guard let amount = Double(transactionAmount) else {
-            self.transactionAmount = ""
-            return
-        }
-        
-        if type == .deposit {
-            account.deposit(amount)
-        } else if type == .withdrawal {
-            account.withdraw(amount)
-        } else {
-            print("Error - no such transaction type")
-        }
-        
-        self.transactionAmount = ""
-    }
-    
     func printStatement() {
         let header = "date || credit || debit || balance\n"
         
@@ -50,7 +33,9 @@ struct ContentView: View {
                 HStack {
                     Button(
                         action: {
-                            self.add(.deposit)
+                            let transactionAmount = Double(self.transactionAmount)!
+                            self.account.add(.deposit, of: transactionAmount)
+                            self.transactionAmount = ""
                         },
                         label: {
                             Text("Deposit (+)")
@@ -60,7 +45,9 @@ struct ContentView: View {
                         .padding(5)
                     Button(
                         action: {
-                            self.add(.withdrawal)
+                            let transactionAmount = Double(self.transactionAmount)!
+                            self.account.add(.withdrawal, of: transactionAmount)
+                            self.transactionAmount = ""
                         },
                         label: {
                             Text("Withdraw (-)")
