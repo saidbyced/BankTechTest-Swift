@@ -50,12 +50,11 @@ class Account {
     }
     
     func add(_ type: Transaction.OfType, of amount: Double) {
-        if type == .deposit {
+        switch type {
+        case .deposit:
             transactions.append(Transaction(date: Date(), amount: amount, type: .deposit))
-        } else if type == .withdrawal {
+        case .withdrawal:
             transactions.append(Transaction(date: Date(), amount: amount, type: .withdrawal))
-        } else {
-            print("Error - no such transaction type")
         }
     }
 }
