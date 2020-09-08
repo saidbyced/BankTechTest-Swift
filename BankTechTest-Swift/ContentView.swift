@@ -66,10 +66,7 @@ struct ContentView: View {
             )
                 .padding(5)
             Group {
-                if showingStatement == false {
-                    Text(printableStatement)
-                        .hidden()
-                } else {
+                if showingStatement == true {
                     Button(
                         action: {
                             self.showingStatement = false
