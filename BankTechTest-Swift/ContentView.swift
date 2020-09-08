@@ -31,8 +31,7 @@ struct ContentView: View {
                 HStack {
                     Button(
                         action: {
-                            let transactionAmount = Double(self.transactionAmount)!
-                            self.account.add(.deposit, of: transactionAmount)
+                            self.account.add(.deposit, of: Double(self.transactionAmount)!)
                             self.transactionAmount = ""
                         },
                         label: {
@@ -43,8 +42,7 @@ struct ContentView: View {
                         .padding(5)
                     Button(
                         action: {
-                            let transactionAmount = Double(self.transactionAmount)!
-                            self.account.add(.withdrawal, of: transactionAmount)
+                            self.account.add(.withdrawal, of: Double(self.transactionAmount)!)
                             self.transactionAmount = ""
                         },
                         label: {
